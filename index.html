@@ -10,12 +10,12 @@
   :root {
     --gold: #FF6B1A;
     --gold-light: #FF9A5C;
-    --black: #0A0A0A;
-    --charcoal: #111111;
-    --surface: #161616;
-    --border: rgba(255,107,26,0.22);
-    --text: #FFFFFF;
-    --muted: rgba(255,255,255,0.5);
+    --black: #FFFFF0;
+    --charcoal: #FFFDF5;
+    --surface: #FFFFFF;
+    --border: rgba(255,107,26,0.18);
+    --text: #111111;
+    --muted: rgba(17,17,17,0.65);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -66,7 +66,7 @@
     transition: background 0.4s, padding 0.4s;
   }
   nav.scrolled {
-    background: rgba(10,10,10,0.95);
+    background: rgba(255,255,240,0.95);
     backdrop-filter: blur(12px);
     padding: 18px 60px;
     border-bottom: 1px solid var(--border);
@@ -119,60 +119,58 @@
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 70%),
-      linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
+      linear-gradient(to right, rgba(255,255,240,0.70) 0%, rgba(255,255,240,0.20) 70%),
+      linear-gradient(to top, rgba(255,255,240,0.78) 0%, transparent 60%);
     z-index: 1;
   }
   .hero-photo-grid {
     position: absolute;
     inset: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 4px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 6px;
     z-index: 0;
+    padding: 6px;
   }
-  .hero-photo-grid div {
-    background: var(--surface);
-    overflow: hidden;
+  .hero-grid-item {
     position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    min-height: 0;
   }
-  .hero-photo-grid div::after {
+  .hero-grid-item:nth-child(7) {
+    grid-column: 1 / 3;
+  }
+  .hero-grid-item:nth-child(8) {
+    grid-column: 3 / 4;
+  }
+  .hero-grid-item::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
-  }
-  /* Placeholder visual patterns for grid cells */
-  .ph1 { background: linear-gradient(135deg, #1a1510 0%, #2a1e10 100%) !important; }
-  .ph2 { background: linear-gradient(135deg, #0f1218 0%, #151c22 100%) !important; }
-  .ph3 { background: linear-gradient(135deg, #180f10 0%, #221516 100%) !important; }
-  .ph4 { background: linear-gradient(135deg, #111810 0%, #182213 100%) !important; }
-  .ph5 { background: linear-gradient(135deg, #15100f 0%, #221815 100%) !important; }
-  .ph6 { background: linear-gradient(135deg, #0a0d18 0%, #101525 100%) !important; }
-  /* Decorative camera-like icons in cells */
-  .hero-photo-grid div::before {
-    content: '◈';
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: rgba(255,107,26,0.08);
+    background: linear-gradient(135deg, rgba(255,253,245,0.08) 0%, rgba(255,255,255,0.02) 100%);
     z-index: 1;
+    pointer-events: none;
   }
-  /* Animated shimmer on cells */
-  .hero-photo-grid div .shimmer {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(105deg, transparent 40%, rgba(255,107,26,0.06) 50%, transparent 60%);
-    animation: shimmer 3s infinite;
-    z-index: 2;
+  .hero-grid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    animation: heroZoom 18s ease-in-out infinite;
   }
-  @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+  .hero-grid-item:nth-child(2) .hero-grid-img { animation-delay: 1s; }
+  .hero-grid-item:nth-child(3) .hero-grid-img { animation-delay: 2s; }
+  .hero-grid-item:nth-child(4) .hero-grid-img { animation-delay: 3s; }
+  .hero-grid-item:nth-child(5) .hero-grid-img { animation-delay: 4s; }
+  .hero-grid-item:nth-child(6) .hero-grid-img { animation-delay: 5s; }
+  .hero-grid-item:nth-child(7) .hero-grid-img { animation-delay: 6s; }
+  .hero-grid-item:nth-child(8) .hero-grid-img { animation-delay: 7s; }
+
+  @keyframes heroZoom {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
   }
 
   .hero-content { position: relative; z-index: 2; max-width: 700px; }
@@ -438,7 +436,7 @@
     transform-origin: left;
     transition: transform 0.4s;
   }
-  .service-card:hover { background: #1a1a1a; }
+  .service-card:hover { background: #F7F3EA; }
   .service-card:hover::before { transform: scaleX(1); }
   .service-icon {
     font-size: 2.2rem;
@@ -565,7 +563,7 @@
 
   /* Raw Photos Request — Special Section */
   .raw-request {
-    background: #0D0D0D;
+    background: var(--charcoal);
     position: relative;
     overflow: hidden;
   }
@@ -970,7 +968,7 @@
 
 <!-- Nav -->
 <nav id="nav">
-  <a href="#" class="nav-logo">GT<span>C</span></a>
+  <a href="#" class="nav-logo"><img src="images/gtc_logo.jpg" alt="GTC Studio logo" style="height:60px;"></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -978,7 +976,7 @@
     <li><a href="#raw-photos">Raw Photos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Book a Session</a>
+  <div style="display:flex; gap:12px;"><a href="Product.html" class="nav-cta">Products</a><a href="#contact" class="nav-cta">Book a Session</a></div>
 </nav>
 
 <!-- Hero -->
@@ -989,10 +987,10 @@
     <div class="hero-grid-item"><img src="images/gtcimg2.jpg" alt="GTC Studio image 2" class="hero-grid-img"></div>
     <div class="hero-grid-item"><img src="images/gtcimg3.jpg" alt="GTC Studio image 3" class="hero-grid-img"></div>
     <div class="hero-grid-item"><img src="images/gtcimg4.jpg" alt="GTC Studio image 4" class="hero-grid-img"></div>
-    <div class="hero-grid-item"><img src="images/gtcimg12.jpg" alt="GTC Studio image 5" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg5.jpg" alt="GTC Studio image 5" class="hero-grid-img"></div>
     <div class="hero-grid-item"><img src="images/gtcimg6.jpg" alt="GTC Studio image 6" class="hero-grid-img"></div>
     <div class="hero-grid-item"><img src="images/gtcimg7.jpg" alt="GTC Studio image 7" class="hero-grid-img"></div>
-    <div class="hero-grid-item"><img src="images/gtcimg11.jpg" alt="GTC Studio image 8" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg8.jpg" alt="GTC Studio image 8" class="hero-grid-img"></div>
   </div>
   <div class="hero-content">
     <div class="hero-tag">Kigali, Rwanda — Est. GTC Studio</div>
