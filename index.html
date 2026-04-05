@@ -10,12 +10,12 @@
   :root {
     --gold: #FF6B1A;
     --gold-light: #FF9A5C;
-    --black: #0A0A0A;
-    --charcoal: #111111;
-    --surface: #161616;
-    --border: rgba(255,107,26,0.22);
-    --text: #FFFFFF;
-    --muted: rgba(255,255,255,0.5);
+    --black: #FFFFF0;
+    --charcoal: #FFFDF5;
+    --surface: #FFFFFF;
+    --border: rgba(255,107,26,0.18);
+    --text: #111111;
+    --muted: rgba(17,17,17,0.65);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,7 +23,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    background: #FFFFF0; color:#111;
+    background: var(--black);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
@@ -66,7 +66,7 @@
     transition: background 0.4s, padding 0.4s;
   }
   nav.scrolled {
-    background: rgba(10,10,10,0.95);
+    background: rgba(255,255,240,0.95);
     backdrop-filter: blur(12px);
     padding: 18px 60px;
     border-bottom: 1px solid var(--border);
@@ -119,8 +119,8 @@
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 70%),
-      linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
+      linear-gradient(to right, rgba(255,255,240,0.82) 0%, rgba(255,255,240,0.35) 70%),
+      linear-gradient(to top, rgba(255,255,240,0.92) 0%, transparent 60%);
     z-index: 1;
   }
   .hero-photo-grid {
@@ -141,7 +141,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
+    background: linear-gradient(135deg, rgba(255,253,245,0.45) 0%, rgba(255,255,255,0.08) 100%);
   }
   /* Placeholder visual patterns for grid cells */
   .ph1 { background: linear-gradient(135deg, #1a1510 0%, #2a1e10 100%) !important; }
@@ -438,7 +438,7 @@
     transform-origin: left;
     transition: transform 0.4s;
   }
-  .service-card:hover { background: #1a1a1a; }
+  .service-card:hover { background: #F7F3EA; }
   .service-card:hover::before { transform: scaleX(1); }
   .service-icon {
     font-size: 2.2rem;
@@ -522,7 +522,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(10,10,10,0.9));
+    background: linear-gradient(to bottom, transparent 50%, rgba(255,255,240,0.82));
     transition: opacity 0.4s;
     opacity: 0;
   }
@@ -565,7 +565,7 @@
 
   /* Raw Photos Request — Special Section */
   .raw-request {
-    background: #0D0D0D;
+    background: var(--charcoal);
     position: relative;
     overflow: hidden;
   }
@@ -659,7 +659,7 @@
   .form-group select,
   .form-group textarea {
     width: 100%;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.85);
     border: 1px solid var(--border);
     color: var(--text);
     padding: 14px 18px;
@@ -894,7 +894,8 @@
 
   /* Footer */
   footer {
-    background: #FFFFF0; color:#111;
+    background: var(--black);
+    color: var(--text);
     border-top: 1px solid var(--border);
     padding: 50px 60px;
     display: flex;
@@ -977,7 +978,7 @@
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-photo-grid">
-    <div class="ph1" imgsrc="images/gtcimg1.jpg"><div class="shimmer"></div></div>
+    <div class="ph1"><div class="shimmer"></div></div>
     <div class="ph2"><div class="shimmer" style="animation-delay:0.5s"></div></div>
     <div class="ph3"><div class="shimmer" style="animation-delay:1s"></div></div>
     <div class="ph4"><div class="shimmer" style="animation-delay:1.5s"></div></div>
