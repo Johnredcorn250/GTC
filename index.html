@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --gold: #C47A2C;
-    --gold-light: #E2A15E;
-    --black: #FFFFF0;
-    --charcoal: #FFFDF5;
-    --surface: #FFFFFF;
-    --border: rgba(196,122,44,0.25);
-    --text: #111111;
-    --muted: rgba(17,17,17,0.65);
+    --gold: #FF6B1A;
+    --gold-light: #FF9A5C;
+    --black: #0A0A0A;
+    --charcoal: #111111;
+    --surface: #161616;
+    --border: rgba(255,107,26,0.22);
+    --text: #FFFFFF;
+    --muted: rgba(255,255,255,0.5);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,7 +66,7 @@
     transition: background 0.4s, padding 0.4s;
   }
   nav.scrolled {
-    background: rgba(255,255,240,0.95);
+    background: rgba(10,10,10,0.95);
     backdrop-filter: blur(12px);
     padding: 18px 60px;
     border-bottom: 1px solid var(--border);
@@ -120,58 +119,60 @@
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, rgba(255,255,240,0.70) 0%, rgba(255,255,240,0.20) 70%),
-      linear-gradient(to top, rgba(255,255,240,0.78) 0%, transparent 60%);
+      linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 70%),
+      linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
     z-index: 1;
   }
   .hero-photo-grid {
     position: absolute;
     inset: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 6px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
     z-index: 0;
-    padding: 6px;
   }
-  .hero-grid-item {
-    position: relative;
-    overflow: hidden;
+  .hero-photo-grid div {
     background: var(--surface);
-    min-height: 0;
+    overflow: hidden;
+    position: relative;
   }
-  .hero-grid-item:nth-child(7) {
-    grid-column: 1 / 3;
-  }
-  .hero-grid-item:nth-child(8) {
-    grid-column: 3 / 4;
-  }
-  .hero-grid-item::after {
+  .hero-photo-grid div::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,253,245,0.08) 0%, rgba(255,255,255,0.02) 100%);
+    background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
+  }
+  /* Placeholder visual patterns for grid cells */
+  .ph1 { background: linear-gradient(135deg, #1a1510 0%, #2a1e10 100%) !important; }
+  .ph2 { background: linear-gradient(135deg, #0f1218 0%, #151c22 100%) !important; }
+  .ph3 { background: linear-gradient(135deg, #180f10 0%, #221516 100%) !important; }
+  .ph4 { background: linear-gradient(135deg, #111810 0%, #182213 100%) !important; }
+  .ph5 { background: linear-gradient(135deg, #15100f 0%, #221815 100%) !important; }
+  .ph6 { background: linear-gradient(135deg, #0a0d18 0%, #101525 100%) !important; }
+  /* Decorative camera-like icons in cells */
+  .hero-photo-grid div::before {
+    content: '◈';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: rgba(255,107,26,0.08);
     z-index: 1;
-    pointer-events: none;
   }
-  .hero-grid-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    animation: heroZoom 18s ease-in-out infinite;
+  /* Animated shimmer on cells */
+  .hero-photo-grid div .shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,107,26,0.06) 50%, transparent 60%);
+    animation: shimmer 3s infinite;
+    z-index: 2;
   }
-  .hero-grid-item:nth-child(2) .hero-grid-img { animation-delay: 1s; }
-  .hero-grid-item:nth-child(3) .hero-grid-img { animation-delay: 2s; }
-  .hero-grid-item:nth-child(4) .hero-grid-img { animation-delay: 3s; }
-  .hero-grid-item:nth-child(5) .hero-grid-img { animation-delay: 4s; }
-  .hero-grid-item:nth-child(6) .hero-grid-img { animation-delay: 5s; }
-  .hero-grid-item:nth-child(7) .hero-grid-img { animation-delay: 6s; }
-  .hero-grid-item:nth-child(8) .hero-grid-img { animation-delay: 7s; }
-
-  @keyframes heroZoom {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
 
   .hero-content { position: relative; z-index: 2; max-width: 700px; }
@@ -268,7 +269,7 @@
   .scroll-line {
     width: 1px;
     height: 60px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
+    background: linear-gradient(to bottom, #FF6B1A, transparent);
     animation: scrollPulse 2s infinite;
   }
   @keyframes scrollPulse {
@@ -344,11 +345,10 @@
     justify-content: center;
     overflow: hidden;
   }
-  .about-frame-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .about-frame-inner::before {
+    content: '📷';
+    font-size: 5rem;
+    opacity: 0.15;
   }
   .about-corner {
     position: absolute;
@@ -438,7 +438,7 @@
     transform-origin: left;
     transition: transform 0.4s;
   }
-  .service-card:hover { background: #F6EFE4; }
+  .service-card:hover { background: #1a1a1a; }
   .service-card:hover::before { transform: scaleX(1); }
   .service-icon {
     font-size: 2.2rem;
@@ -463,7 +463,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
     font-weight: 300;
-    color: rgba(196,122,44,0.08);
+    color: rgba(255,107,26,0.07);
     line-height: 1;
   }
 
@@ -546,7 +546,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.85rem;
     font-style: italic;
-    color: var(--gold-light);
+    color: #FF9A5C;
     opacity: 0;
     transition: opacity 0.4s, transform 0.4s;
     transform: translateY(10px);
@@ -560,12 +560,12 @@
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
-    color: rgba(196,122,44,0.08);
+    color: rgba(255,107,26,0.06);
   }
 
   /* Raw Photos Request — Special Section */
   .raw-request {
-    background: var(--charcoal);
+    background: #0D0D0D;
     position: relative;
     overflow: hidden;
   }
@@ -578,7 +578,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 20vw;
     font-weight: 900;
-    color: rgba(196,122,44,0.05);
+    color: rgba(255,107,26,0.03);
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
@@ -631,7 +631,7 @@
     position: absolute;
     top: 0; left: 44px; right: 44px;
     height: 2px;
-    background: linear-gradient(to right, var(--gold), transparent);
+    background: linear-gradient(to right, #FF6B1A, transparent);
   }
   .form-title {
     font-family: 'Playfair Display', serif;
@@ -675,7 +675,7 @@
   .form-group select:focus,
   .form-group textarea:focus {
     border-color: var(--gold);
-    background: rgba(196,122,44,0.05);
+    background: rgba(255,107,26,0.04);
   }
   .form-group select option { background: var(--charcoal); }
   .form-group textarea { height: 90px; resize: none; }
@@ -687,7 +687,7 @@
     margin-bottom: 28px;
     padding: 16px;
     border: 1px solid var(--border);
-    background: rgba(196,122,44,0.05);
+    background: rgba(255,107,26,0.04);
   }
   .privacy-icon { font-size: 1rem; margin-top: 1px; }
   .privacy-text { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
@@ -772,7 +772,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 6rem;
     line-height: 0.6;
-    color: rgba(196,122,44,0.12);
+    color: rgba(255,107,26,0.12);
     display: block;
     margin-bottom: 24px;
   }
@@ -960,6 +960,24 @@
     body { cursor: auto; }
     .cursor, .cursor-ring { display: none; }
   }
+
+.photography-card {
+  background: url('images/gtcphotography.jpg') center/cover no-repeat;
+  position: relative;
+  color: white;
+}
+.photography-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 0;
+}
+.photography-card * {
+  position: relative;
+  z-index: 1;
+}
+
 </style>
 </head>
 <body>
@@ -970,7 +988,7 @@
 
 <!-- Nav -->
 <nav id="nav">
-  <a href="#" class="nav-logo"><img src="images/gtc_logo.jpg" alt="GTC Studio logo" style="height:60px;"></a>
+  <a href="#" class="nav-logo">GT<span>C</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -978,7 +996,7 @@
     <li><a href="#raw-photos">Raw Photos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div style="display:flex; gap:12px;"><a href="Product.html" class="nav-cta">Products</a><a href="#contact" class="nav-cta">Book a Session</a></div>
+  <a href="#contact" class="nav-cta">Book a Session</a>
 </nav>
 
 <!-- Hero -->
@@ -989,10 +1007,10 @@
     <div class="hero-grid-item"><img src="images/gtcimg2.jpg" alt="GTC Studio image 2" class="hero-grid-img"></div>
     <div class="hero-grid-item"><img src="images/gtcimg3.jpg" alt="GTC Studio image 3" class="hero-grid-img"></div>
     <div class="hero-grid-item"><img src="images/gtcimg4.jpg" alt="GTC Studio image 4" class="hero-grid-img"></div>
-    <div class="hero-grid-item"><img src="images/gtcimg5.jpg" alt="GTC Studio image 5" class="hero-grid-img"></div>
-    <div class="hero-grid-item"><img src="images/gtcimg11.jpg" alt="GTC Studio image 6" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg12.jpg" alt="GTC Studio image 5" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg6.jpg" alt="GTC Studio image 6" class="hero-grid-img"></div>
     <div class="hero-grid-item"><img src="images/gtcimg7.jpg" alt="GTC Studio image 7" class="hero-grid-img"></div>
-    <div class="hero-grid-item"><img src="images/gtcimg12.jpg" alt="GTC Studio image 8" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg11.jpg" alt="GTC Studio image 8" class="hero-grid-img"></div>
   </div>
   <div class="hero-content">
     <div class="hero-tag">Kigali, Rwanda — Est. GTC Studio</div>
@@ -1014,7 +1032,7 @@
   <div class="about-grid">
     <div class="about-visual reveal">
       <div class="about-frame">
-        <div class="about-frame-inner"><img src="images/gtcimg1.jpg" alt="GTC Studio Rwanda"></div>
+        <div class="about-frame-inner"></div>
         <div class="about-corner tl"></div>
         <div class="about-corner tr"></div>
         <div class="about-corner bl"></div>
@@ -1059,7 +1077,7 @@
   <div class="section-tag reveal">What We Do</div>
   <h2 class="section-title reveal reveal-delay-1">Full-spectrum <em>creative services</em></h2>
   <div class="services-grid">
-    <div class="service-card reveal reveal-delay-1">
+    <div class="service-card photography-card reveal reveal-delay-1">
       <span class="service-num">01</span>
       <span class="service-icon">📷</span>
       <div class="service-name">Photography</div>
