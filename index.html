@@ -960,22 +960,6 @@
     body { cursor: auto; }
     .cursor, .cursor-ring { display: none; }
   }
-
-.photography-card {
-  background: url('images/gtcphotography.jpg') center/cover no-repeat;
-  position: relative;
-}
-.photography-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,240,0.35);
-}
-.photography-card > * {
-  position: relative;
-  z-index: 1;
-}
-
 </style>
 </head>
 <body>
@@ -1075,7 +1059,7 @@
   <div class="section-tag reveal">What We Do</div>
   <h2 class="section-title reveal reveal-delay-1">Full-spectrum <em>creative services</em></h2>
   <div class="services-grid">
-    <div class="service-card photography-card reveal reveal-delay-1">
+    <div class="service-card reveal reveal-delay-1">
       <span class="service-num">01</span>
       <span class="service-icon">📷</span>
       <div class="service-name">Photography</div>
