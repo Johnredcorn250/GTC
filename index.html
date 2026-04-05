@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -343,10 +344,11 @@
     justify-content: center;
     overflow: hidden;
   }
-  .about-frame-inner::before {
-    content: '📷';
-    font-size: 5rem;
-    opacity: 0.15;
+  .about-frame-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .about-corner {
     position: absolute;
@@ -1012,7 +1014,7 @@
   <div class="about-grid">
     <div class="about-visual reveal">
       <div class="about-frame">
-        <div class="about-frame-inner"></div>
+        <div class="about-frame-inner"><img src="images/gtcimg1.jpg" alt="GTC Studio Rwanda"></div>
         <div class="about-corner tl"></div>
         <div class="about-corner tr"></div>
         <div class="about-corner bl"></div>
