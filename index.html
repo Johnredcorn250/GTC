@@ -10,12 +10,12 @@
   :root {
     --gold: #FF6B1A;
     --gold-light: #FF9A5C;
-    --black: #FFFFF0;
-    --charcoal: #FFFDF5;
-    --surface: #FFFFFF;
-    --border: rgba(255,107,26,0.18);
-    --text: #111111;
-    --muted: rgba(17,17,17,0.65);
+    --black: #0A0A0A;
+    --charcoal: #111111;
+    --surface: #161616;
+    --border: rgba(255,107,26,0.22);
+    --text: #FFFFFF;
+    --muted: rgba(255,255,255,0.5);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -66,7 +66,7 @@
     transition: background 0.4s, padding 0.4s;
   }
   nav.scrolled {
-    background: rgba(255,255,240,0.95);
+    background: rgba(10,10,10,0.95);
     backdrop-filter: blur(12px);
     padding: 18px 60px;
     border-bottom: 1px solid var(--border);
@@ -119,8 +119,8 @@
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, rgba(255,255,240,0.82) 0%, rgba(255,255,240,0.35) 70%),
-      linear-gradient(to top, rgba(255,255,240,0.92) 0%, transparent 60%);
+      linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 70%),
+      linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
     z-index: 1;
   }
   .hero-photo-grid {
@@ -141,7 +141,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255,253,245,0.45) 0%, rgba(255,255,255,0.08) 100%);
+    background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
   }
   /* Placeholder visual patterns for grid cells */
   .ph1 { background: linear-gradient(135deg, #1a1510 0%, #2a1e10 100%) !important; }
@@ -438,7 +438,7 @@
     transform-origin: left;
     transition: transform 0.4s;
   }
-  .service-card:hover { background: #F7F3EA; }
+  .service-card:hover { background: #1a1a1a; }
   .service-card:hover::before { transform: scaleX(1); }
   .service-icon {
     font-size: 2.2rem;
@@ -522,7 +522,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(255,255,240,0.82));
+    background: linear-gradient(to bottom, transparent 50%, rgba(10,10,10,0.9));
     transition: opacity 0.4s;
     opacity: 0;
   }
@@ -565,7 +565,7 @@
 
   /* Raw Photos Request — Special Section */
   .raw-request {
-    background: var(--charcoal);
+    background: #0D0D0D;
     position: relative;
     overflow: hidden;
   }
@@ -659,7 +659,7 @@
   .form-group select,
   .form-group textarea {
     width: 100%;
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.03);
     border: 1px solid var(--border);
     color: var(--text);
     padding: 14px 18px;
@@ -895,7 +895,6 @@
   /* Footer */
   footer {
     background: var(--black);
-    color: var(--text);
     border-top: 1px solid var(--border);
     padding: 50px 60px;
     display: flex;
@@ -942,6 +941,14 @@
     .nav-links { display: none; }
     section { padding: 80px 24px; }
     .hero { padding: 0 24px 60px; }
+    .hero-photo-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
+    }
+    .hero-grid-item:nth-child(7),
+    .hero-grid-item:nth-child(8) {
+      grid-column: auto;
+    }
     .about-grid, .raw-inner, .contact-grid { grid-template-columns: 1fr; gap: 50px; }
     .services-grid { grid-template-columns: 1fr; }
     .testimonials-track { grid-template-columns: 1fr; }
@@ -963,7 +970,7 @@
 
 <!-- Nav -->
 <nav id="nav">
-  <a href="#" class="nav-logo"><img src="images/gtc_logo.jpg" style="height:60px;"></a>
+  <a href="#" class="nav-logo">GT<span>C</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
@@ -971,19 +978,21 @@
     <li><a href="#raw-photos">Raw Photos</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div style="display:flex; gap:12px;"><a href="Product.html" class="nav-cta">Products</a><a href="#contact" class="nav-cta">Book a Session</a></div>
+  <a href="#contact" class="nav-cta">Book a Session</a>
 </nav>
 
 <!-- Hero -->
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-photo-grid">
-    <div class="ph1"><div class="shimmer"></div></div>
-    <div class="ph2"><div class="shimmer" style="animation-delay:0.5s"></div></div>
-    <div class="ph3"><div class="shimmer" style="animation-delay:1s"></div></div>
-    <div class="ph4"><div class="shimmer" style="animation-delay:1.5s"></div></div>
-    <div class="ph5"><div class="shimmer" style="animation-delay:0.8s"></div></div>
-    <div class="ph6"><div class="shimmer" style="animation-delay:0.3s"></div></div>
+    <div class="hero-grid-item"><img src="images/gtcimg1.jpg" alt="GTC Studio image 1" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg2.jpg" alt="GTC Studio image 2" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg3.jpg" alt="GTC Studio image 3" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg4.jpg" alt="GTC Studio image 4" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg12.jpg" alt="GTC Studio image 5" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg6.jpg" alt="GTC Studio image 6" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg7.jpg" alt="GTC Studio image 7" class="hero-grid-img"></div>
+    <div class="hero-grid-item"><img src="images/gtcimg11.jpg" alt="GTC Studio image 8" class="hero-grid-img"></div>
   </div>
   <div class="hero-content">
     <div class="hero-tag">Kigali, Rwanda — Est. GTC Studio</div>
