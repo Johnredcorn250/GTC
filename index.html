@@ -9,12 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --gold: #FF6B1A;
-    --gold-light: #FF9A5C;
+    --gold: #C47A2C;
+    --gold-light: #E2A15E;
     --black: #FFFFF0;
     --charcoal: #FFFDF5;
     --surface: #FFFFFF;
-    --border: rgba(255,107,26,0.18);
+    --border: rgba(196,122,44,0.25);
     --text: #111111;
     --muted: rgba(17,17,17,0.65);
   }
@@ -268,7 +268,7 @@
   .scroll-line {
     width: 1px;
     height: 60px;
-    background: linear-gradient(to bottom, #FF6B1A, transparent);
+    background: linear-gradient(to bottom, var(--gold), transparent);
     animation: scrollPulse 2s infinite;
   }
   @keyframes scrollPulse {
@@ -438,7 +438,7 @@
     transform-origin: left;
     transition: transform 0.4s;
   }
-  .service-card:hover { background: #F7F3EA; }
+  .service-card:hover { background: #F6EFE4; }
   .service-card:hover::before { transform: scaleX(1); }
   .service-icon {
     font-size: 2.2rem;
@@ -463,7 +463,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 4rem;
     font-weight: 300;
-    color: rgba(255,107,26,0.07);
+    color: rgba(196,122,44,0.08);
     line-height: 1;
   }
 
@@ -546,7 +546,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.85rem;
     font-style: italic;
-    color: #FF9A5C;
+    color: var(--gold-light);
     opacity: 0;
     transition: opacity 0.4s, transform 0.4s;
     transform: translateY(10px);
@@ -560,7 +560,7 @@
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
-    color: rgba(255,107,26,0.06);
+    color: rgba(196,122,44,0.08);
   }
 
   /* Raw Photos Request — Special Section */
@@ -578,7 +578,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 20vw;
     font-weight: 900;
-    color: rgba(255,107,26,0.03);
+    color: rgba(196,122,44,0.05);
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
@@ -631,7 +631,7 @@
     position: absolute;
     top: 0; left: 44px; right: 44px;
     height: 2px;
-    background: linear-gradient(to right, #FF6B1A, transparent);
+    background: linear-gradient(to right, var(--gold), transparent);
   }
   .form-title {
     font-family: 'Playfair Display', serif;
@@ -675,7 +675,7 @@
   .form-group select:focus,
   .form-group textarea:focus {
     border-color: var(--gold);
-    background: rgba(255,107,26,0.04);
+    background: rgba(196,122,44,0.05);
   }
   .form-group select option { background: var(--charcoal); }
   .form-group textarea { height: 90px; resize: none; }
@@ -687,7 +687,7 @@
     margin-bottom: 28px;
     padding: 16px;
     border: 1px solid var(--border);
-    background: rgba(255,107,26,0.04);
+    background: rgba(196,122,44,0.05);
   }
   .privacy-icon { font-size: 1rem; margin-top: 1px; }
   .privacy-text { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
@@ -772,7 +772,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 6rem;
     line-height: 0.6;
-    color: rgba(255,107,26,0.12);
+    color: rgba(196,122,44,0.12);
     display: block;
     margin-bottom: 24px;
   }
